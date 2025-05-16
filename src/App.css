@@ -71,12 +71,10 @@ body {
 
 .main-content {
   flex: 1;
-  padding-top: 80px; /* Para compensar el navbar fijo */
 }
 
 section {
-  padding: 4rem 2rem;
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
 }
 

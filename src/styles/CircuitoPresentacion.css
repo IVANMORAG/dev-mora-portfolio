@@ -20,7 +20,7 @@ body {
   flex-direction: column;
   justify-content: flex-start; /* Contenido comienza desde arriba */
   align-items: center;
-  padding: 20px 0;
+  padding: 6px 0;
 }
 
 /* ===== MAIN CONTAINERS ===== */
@@ -161,7 +161,7 @@ body {
   justify-content: center;
   gap: 100px;
   width: 100%;
-  padding: 30px 20px;
+  padding: 10px;
   position: relative;
   z-index: 4;
   flex-wrap: wrap;
