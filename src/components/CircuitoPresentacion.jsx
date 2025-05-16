@@ -40,14 +40,9 @@ const CircuitoPresentacion = () => {
 
         <div className="presentation-card">
           <h1>IVÁN MORA</h1>
-          <span className="title">DESARROLLADOR FULL-STACK</span>
-          <div className="expertise">
-            Especializado en <span className="highlight">Python</span>, 
-            <span className="highlight">JavaScript</span> y <span className="highlight">React</span>.<br />
-            Experiencia en <span className="highlight">ML</span>, 
-            <span className="highlight">redes neuronales</span> y <span className="highlight">Docker</span>.
-          </div>
+          <span className="title">ESTUDIANTE  </span>
         </div>
+
       </div>
 
       {/* Redes sociales (SOLO ESTO ES NUEVO) */}
