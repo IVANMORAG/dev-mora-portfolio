@@ -40,3 +40,87 @@
 .read-the-docs {
   color: #888;
 }
+/* ===== RESET & BASE STYLES ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #06061a;
+  font-family: 'Arial', sans-serif;
+  color: #e0f0ff;
+  line-height: 1.6;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 80px; /* Para compensar el navbar fijo */
+}
+
+section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #111;
+}
+
+.loading-text {
+  color: #4af;
+  font-size: 1.5rem;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 2rem 1rem;
+  }
+}
+
+.section-placeholder {
+  background: rgba(9, 9, 34, 0.5);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 102, 255, 0.3);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.section-placeholder h2 {
+  color: #4af;
+  margin-bottom: 1rem;
+}
+
+.section-placeholder p {
+  color: #e0f0ff;
+  opacity: 0.7;
+}
