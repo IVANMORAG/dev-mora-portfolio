@@ -1,49 +1,84 @@
-/* === RESET SUPERLIGERO === */
-body {
+/* ===== RESET & BASE STYLES ===== */
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scroll vertical solo cuando sea necesario */
+}
+
+body {
   background: #06061a;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Contenido comienza desde arriba */
+  align-items: center;
+  padding: 20px 0;
+}
+
+/* ===== MAIN CONTAINERS ===== */
+.main-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.circuit-container {
+  position: relative;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  font-family: 'Arial', sans-serif;
-  overflow: hidden;
+  margin-bottom: 40px;
 }
 
-/* === CONTENEDOR PRINCIPAL (GPU ACCELERATED) === */
-.container {
-  position: relative;
-  width: 90%;
-  max-width: 800px;
-  will-change: transform;
-}
-
-/* === SVG BASE (10% MÁS GRANDE Y CENTRADO) === */
+/* ===== CIRCUIT SVG (30% LARGER) ===== */
 .circuit-svg {
-  width: 110%;
-  height: 110%;
-  display: block;
+  width: 160%; /* 30% más grande */
+  height: auto;
+  max-height: 80vh;
   filter: brightness(0.7) saturate(0.5);
   opacity: 0.8;
-  margin-left: -5%;
-  transform-origin: center center;
+  position: relative;
+  z-index: 1;
+  transform: translateX(-15%); /* Centrado compensado */
 }
 
-/* === EFECTO DE FLUJO (AJUSTADO AL 10%) === */
+/* ===== ENERGY EFFECT ===== */
 .energy-flow {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 150%;
-  height: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160%;
+  height: 100%;
+  max-width: none;
   mask-image: url('../assets/ola.svg');
-  mask-size: 110% auto;
+  mask-size: 100% auto;
   mask-repeat: no-repeat;
   mask-position: center;
   z-index: 2;
   pointer-events: none;
-  backface-visibility: hidden;
-  transform: translate3d(-15%, 0, 0);
+  overflow: hidden;
 }
 
 .energy-wave {
@@ -62,7 +97,6 @@ body {
   );
   animation: expand 8s infinite cubic-bezier(0.32, 0.04, 0.15, 1);
   opacity: 0;
-  will-change: width, height, opacity, transform;
 }
 
 @keyframes expand {
@@ -86,24 +120,23 @@ body {
   }
 }
 
-/* === TARJETA DE PRESENTACIÓN (ESTILO ORIGINAL) === */
+/* ===== PRESENTATION CARD ===== */
 .presentation-card {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%,-50%,0);
   width: 80%;
-  max-width: 200px;
+  max-width: 280px;
   padding: 25px;
   background: #090922e6;
   border: 1px solid #0066ff;
   border-radius: 10px;
   color: #e0f0ff;
   text-align: center;
-  z-index: 4;
+  z-index: 3;
   box-shadow: 0 0 25px rgba(0, 100, 255, 0.6);
   backdrop-filter: blur(4px);
-  will-change: transform;
 }
 
 .presentation-card h1 {
@@ -117,70 +150,123 @@ body {
   display: block;
   margin-bottom: 15px;
   color: #7af;
-  font-size: 1.1rem;
+  font-size: .8rem;
   font-weight: 300;
   letter-spacing: 1px;
 }
 
-.presentation-card .expertise {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-.presentation-card .highlight {
-  color: #6df;
-  font-weight: 500;
-}
-
-/* === [NUEVO] ESTILOS PARA ICONOS DE REDES === */
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+/* ===== SOCIAL ICONS ===== */
 .social-icons-container {
   display: flex;
   justify-content: center;
   gap: 100px;
-  margin-top: 30px;
   width: 100%;
+  padding: 30px 20px;
+  position: relative;
+  z-index: 4;
+  flex-wrap: wrap;
+}
+
+.social-icons-container a {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.social-icons-container a:hover {
+  transform: translateY(-5px);
 }
 
 .social-icons-container img {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   filter: brightness(0) invert(1);
   transition: all 0.3s ease;
 }
 
 .social-icons-container img:hover {
   filter: brightness(0) invert(0.7) sepia(1) saturate(5) hue-rotate(175deg);
-  transform: scale(1.1);
 }
 
-/* === RESPONSIVE ORIGINAL (SOLO AÑADO AJUSTES PARA ICONOS) === */
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 992px) {
+  .circuit-svg {
+    width: 140%;
+    transform: translateX(-20%);
+  }
+  
+  .energy-flow {
+    width: 140%;
+  }
+}
+
 @media (max-width: 768px) {
+  body {
+    padding: 15px 0;
+  }
+  
+  .circuit-svg {
+    width: 150%;
+    max-height: 70vh;
+    transform: translateX(-25%);
+  }
+  
+  .energy-flow {
+    width: 150%;
+  }
+  
+  .presentation-card {
+    max-width: 240px;
+    padding: 20px;
+  }
+  
+  .social-icons-container {
+    gap: 25px;
+    padding: 25px 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .circuit-svg {
+    width: 180%;
+    max-height: 60vh;
+    transform: translateX(-40%);
+  }
+  
+  .energy-flow {
+    width: 180%;
+  }
+  
+  .presentation-card {
+    max-width: 200px;
+    padding: 15px;
+  }
+  
+  .presentation-card h1 {
+    font-size: 1.5rem;
+  }
+  
   .social-icons-container {
     gap: 20px;
-    margin-top: 25px;
+    padding: 20px 10px;
   }
   
   .social-icons-container img {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
   }
 }
 
-@media (max-width: 480px) {
-  .social-icons-container {
-    gap: 15px;
-    margin-top: 20px;
+@media (max-width: 400px) {
+  .circuit-svg {
+    width: 200%;
+    transform: translateX(-50%);
   }
   
-  .social-icons-container img {
-    width: 20px;
-    height: 20px;
+  .energy-flow {
+    width: 200%;
+  }
+  
+  .presentation-card {
+    max-width: 180px;
   }
 }
