@@ -21,7 +21,7 @@ body {
 /* === SVG BASE (10% MÁS GRANDE Y CENTRADO) === */
 .circuit-svg {
   width: 110%;
-  height: auto;
+  height: 110%;
   display: block;
   filter: brightness(0.7) saturate(0.5);
   opacity: 0.8;
@@ -34,16 +34,16 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 110%;
-  height: 100%;
-  mask-image: url('../assets/circuito.svg');
+  width: 150%;
+  height: 150%;
+  mask-image: url('../assets/ola.svg');
   mask-size: 110% auto;
   mask-repeat: no-repeat;
   mask-position: center;
   z-index: 2;
   pointer-events: none;
   backface-visibility: hidden;
-  transform: translate3d(-5%, 0, 0);
+  transform: translate3d(-15%, 0, 0);
 }
 
 .energy-wave {
