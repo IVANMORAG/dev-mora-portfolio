@@ -1,7 +1,6 @@
-/* === RESET & BASE === */
+/* === RESET SUPERLIGERO === */
 body {
   margin: 0;
-  padding: 0;
   background: #050512;
   display: flex;
   justify-content: center;
@@ -11,43 +10,47 @@ body {
   overflow: hidden;
 }
 
-/* === CONTENEDOR PRINCIPAL === */
+/* === CONTENEDOR PRINCIPAL (GPU ACCELERATED) === */
 .container {
   position: relative;
   width: 90%;
   max-width: 800px;
+  will-change: transform;
 }
 
-/* === CAPA 1: SVG BASE === */
+/* === SVG BASE (10% MÁS GRANDE Y CENTRADO) === */
 .circuit-svg {
-  width: 100%;
+  width: 110%;
   height: auto;
   display: block;
   filter: brightness(0.7) saturate(0.5);
   opacity: 0.8;
+  margin-left: -5%;
+  transform-origin: center center;
 }
 
-/* === CAPA 2: EFECTO DE FLUJO === */
+/* === EFECTO DE FLUJO (AJUSTADO AL 10%) === */
 .energy-flow {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 110%;
   height: 100%;
   mask-image: url('../assets/circuito.svg');
-  mask-size: contain;
+  mask-size: 110% auto;
   mask-repeat: no-repeat;
   mask-position: center;
   z-index: 2;
   pointer-events: none;
-  overflow: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(-5%, 0, 0);
 }
 
 .energy-wave {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%,-50%,0);
   width: 0;
   height: 0;
   border-radius: 50%;
@@ -57,23 +60,38 @@ body {
     rgba(0, 100, 255, 0.4) 50%,
     transparent 80%
   );
-  animation: expand 6s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  animation: expand 6s infinite cubic-bezier(0.32, 0.04, 0.15, 1);
   opacity: 0;
+  will-change: width, height, opacity, transform;
 }
 
 @keyframes expand {
-  0% { width: 0; height: 0; opacity: 0; }
-  15% { opacity: 0.9; }
-  90% { opacity: 0.3; }
-  100% { width: 400%; height: 400%; opacity: 0; }
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transform: translate3d(-50%,-50%,0) scale(0.001);
+  }
+  15% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+    transform: translate3d(-50%,-50%,0) scale(40);
+  }
 }
 
-/* === CAPA 3: TARJETA DE PRESENTACIÓN === */
+/* === TARJETA DE PRESENTACIÓN (ESTILO ORIGINAL) === */
 .presentation-card {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-50%,-50%,0);
   width: 80%;
   max-width: 320px;
   padding: 25px;
@@ -85,6 +103,7 @@ body {
   z-index: 4;
   box-shadow: 0 0 25px rgba(0, 100, 255, 0.6);
   backdrop-filter: blur(4px);
+  will-change: transform;
 }
 
 .presentation-card h1 {
@@ -97,7 +116,7 @@ body {
 .presentation-card .title {
   display: block;
   margin-bottom: 15px;
-  color: rgb(245, 246, 246);
+  color: #7af;
   font-size: 1.1rem;
   font-weight: 300;
   letter-spacing: 1px;
@@ -112,4 +131,56 @@ body {
 .presentation-card .highlight {
   color: #6df;
   font-weight: 500;
+}
+
+/* === [NUEVO] ESTILOS PARA ICONOS DE REDES === */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.social-icons-container img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.social-icons-container img:hover {
+  filter: brightness(0) invert(0.7) sepia(1) saturate(5) hue-rotate(175deg);
+  transform: scale(1.1);
+}
+
+/* === RESPONSIVE ORIGINAL (SOLO AÑADO AJUSTES PARA ICONOS) === */
+@media (max-width: 768px) {
+  .social-icons-container {
+    gap: 20px;
+    margin-top: 25px;
+  }
+  
+  .social-icons-container img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-icons-container {
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .social-icons-container img {
+    width: 20px;
+    height: 20px;
+  }
 }
