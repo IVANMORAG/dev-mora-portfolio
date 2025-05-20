@@ -73,7 +73,7 @@ body {
   height: 100%;
   max-width: none;
   mask-image: url('../assets/ola.svg');
-  mask-size: 100% auto;
+  mask-size: 90% auto;
   mask-repeat: no-repeat;
   mask-position: center;
   z-index: 2;

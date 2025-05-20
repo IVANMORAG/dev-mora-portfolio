@@ -2,8 +2,8 @@ import { lazy, Suspense } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ProjectsSection from './components/ProjectsSection';
 
-// Carga perezosa solo del componente existente
 const CircuitoPresentacion = lazy(() => import('./components/CircuitoPresentacion'));
 
 function App() {
@@ -21,16 +21,12 @@ function App() {
             <CircuitoPresentacion />
           </section>
           
-          {/* Secciones temporales vacías */}
           <section id="about" className="section-placeholder">
             <h2>Sobre mí</h2>
             <p>Próximamente...</p>
           </section>
           
-          <section id="projects" className="section-placeholder">
-            <h2>Proyectos</h2>
-            <p>Próximamente...</p>
-          </section>
+          <ProjectsSection />
           
           <section id="skills" className="section-placeholder">
             <h2>Habilidades</h2>
