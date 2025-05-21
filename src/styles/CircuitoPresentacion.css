@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: transparent; /* Aseguramos transparencia */
+  background-color: transparent;
 }
 
 .main-container {
@@ -17,12 +17,13 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  background-color: transparent; /* También aquí */
+  background-color: transparent;
 }
 
 .circuit-container {
   position: relative;
   width: 100%;
+  height: 80vh; /* Altura fija para el contenedor */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,30 +38,15 @@
   transform: translateY(0);
 }
 
-/* ===== CIRCUIT SVG ===== */
-.circuit-svg {
-  width: 100%; /* Reducido de 160% a 140% para mejor rendimiento */
-  height: auto;
-  max-height: 80vh;
-  filter: brightness(0.7) saturate(0.5);
-  opacity: 0.8;
-  position: relative;
-  z-index: 1;
-  transform: translateX(-15%);
-  will-change: transform; /* Optimización para navegadores */
-}
-
-/* ===== ENERGY EFFECT con rendimiento optimizado ===== */
+/* ===== ENERGY EFFECT - Optimizado ===== */
 .energy-flow {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%; /* Reducido para coincider con el tamaño del SVG */
+  left: 0;
+  width: 100%;
   height: 100%;
-  max-width: none;
   mask-image: url('../assets/ola.svg');
-  mask-size: 90% auto;
+  mask-size: 80% auto; /* Ajusta según necesidad */
   mask-repeat: no-repeat;
   mask-position: center;
   z-index: 2;
@@ -122,7 +108,7 @@
   color: #e0f0ff;
   text-align: center;
   z-index: 3;
-  box-shadow: 0 0 20px rgba(0, 100, 255, 0.5); /* Reducido para rendimiento */
+  box-shadow: 0 0 20px rgba(0, 100, 255, 0.5);
   backdrop-filter: blur(4px);
 }
 
@@ -146,7 +132,7 @@
 .social-icons-container {
   display: flex;
   justify-content: center;
-  gap: 40px; /* Reducido el espacio entre iconos */
+  gap: 40px;
   width: 100%;
   padding: 10px;
   position: relative;
@@ -176,25 +162,14 @@
 
 /* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 992px) {
-  .circuit-svg {
-    width: 140%;
-    transform: translateX(-20%);
-  }
-  
   .energy-flow {
-    width: 140%;
+    mask-size: 90% auto;
   }
 }
 
 @media (max-width: 768px) {
-  .circuit-svg {
-    width: 150%;
-    max-height: 70vh;
-    transform: translateX(-25%);
-  }
-  
-  .energy-flow {
-    width: 150%;
+  .circuit-container {
+    height: 70vh;
   }
   
   .presentation-card {
@@ -209,14 +184,12 @@
 }
 
 @media (max-width: 576px) {
-  .circuit-svg {
-    width: 180%;
-    max-height: 60vh;
-    transform: translateX(-40%);
+  .circuit-container {
+    height: 60vh;
   }
   
   .energy-flow {
-    width: 180%;
+    mask-size: 120% auto;
   }
   
   .presentation-card {

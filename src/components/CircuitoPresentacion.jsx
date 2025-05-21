@@ -1,25 +1,14 @@
-// CircuitoPresentacion.jsx
 import { useEffect, useRef, useState } from 'react';
 import '../styles/CircuitoPresentacion.css';
 
 const CircuitoPresentacion = () => {
-  const svgRef = useRef(null);
   const energyFlowRef = useRef(null);
-  const [circuitoSvg, setCircuitoSvg] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Carga diferida de la imagen SVG
+  // Simulamos la carga para la animación de entrada
   useEffect(() => {
-    // Importamos el SVG de forma dinámica
-    import('../assets/circuito.svg')
-      .then(svgModule => {
-        setCircuitoSvg(svgModule.default);
-        
-        // Simular un breve retraso antes de mostrar para evitar parpadeos
-        const timer = setTimeout(() => setIsLoaded(true), 100);
-        return () => clearTimeout(timer);
-      })
-      .catch(err => console.error('Error al cargar el SVG:', err));
+    const timer = setTimeout(() => setIsLoaded(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
   // Ajustar tamaño del efecto de energía
@@ -27,15 +16,14 @@ const CircuitoPresentacion = () => {
     if (!isLoaded) return;
     
     const adjustSize = () => {
-      if (svgRef.current && energyFlowRef.current) {
-        energyFlowRef.current.style.height = `${svgRef.current.offsetHeight}px`;
+      if (energyFlowRef.current) {
+        // Ajustamos a un tamaño fijo o basado en el viewport
+        energyFlowRef.current.style.height = `${window.innerHeight * 0.8}px`;
       }
     };
 
-    // Ajustar después de carga y en cada resize
     adjustSize();
     
-    // Debounce para el evento resize
     let resizeTimer;
     const handleResize = () => {
       clearTimeout(resizeTimer);
@@ -55,23 +43,11 @@ const CircuitoPresentacion = () => {
       <div className="main-container">
         {/* Contenedor del circuito con fade-in */}
         <div className={`circuit-container ${isLoaded ? 'loaded' : ''}`}>
-          {circuitoSvg && (
-            <>
-              <img 
-                ref={svgRef}
-                src={circuitoSvg} 
-                className="circuit-svg" 
-                alt="Circuito electrónico" 
-                loading="lazy"
-              />
-              
-              <div className="energy-flow" ref={energyFlowRef}>
-                {/* Reducimos a 2 ondas para mejorar rendimiento */}
-                <div className="energy-wave" style={{ animationDelay: '0s' }} />
-                <div className="energy-wave" style={{ animationDelay: '4s' }} />
-              </div>
-            </>
-          )}
+          {/* Eliminamos el img del SVG y mantenemos solo el efecto de energía */}
+          <div className="energy-flow" ref={energyFlowRef}>
+            <div className="energy-wave" style={{ animationDelay: '0s' }} />
+            <div className="energy-wave" style={{ animationDelay: '4s' }} />
+          </div>
 
           <div className="presentation-card">
             <h1>IVÁN MORA</h1>
