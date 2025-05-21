@@ -1,43 +1,144 @@
-/* App.css - Solo estilos globales y del contenedor principal */
+/* App.css - Estilos globales */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* Navegación suave entre secciones */
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: #06061a; /* Fijamos el color de fondo */
+}
+
+body {
+  background: #06061a;
+  color: #e0f0ff;
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+}
+
+/* Contenedor principal */
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: #06061a;
-  color: #e0f0ff;
-  font-family: 'Arial', sans-serif;
+  position: relative;
+  background-color: #06061a;
 }
 
 .main-content {
   flex: 1;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.loading-container {
+/* Sección Home */
+#home {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
-.loading-text {
-  color: #4af;
-  font-size: 1.5rem;
+/* Contenedores de sección comunes */
+.section-container {
+  padding: 4rem 0;
+  min-height: 60vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Placeholders para secciones no cargadas */
 .section-placeholder {
-  padding: 2rem;
+  padding: 4rem 2rem;
   text-align: center;
   max-width: 1200px;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
+  width: 100%;
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
 }
 
 .section-placeholder h2 {
   color: #4af;
   margin-bottom: 1rem;
+  font-size: 1.75rem;
 }
 
 .section-placeholder p {
   color: #e0f0ff;
   opacity: 0.7;
+}
+
+/* Indicadores de carga */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(68, 170, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #4af;
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  color: #4af;
+  font-size: 1rem;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.section-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  color: #4af;
+  font-size: 0.9rem;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Media queries para responsive */
+@media (max-width: 768px) {
+  .section-container {
+    padding: 3rem 1rem;
+  }
+  
+  .section-placeholder h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-container {
+    padding: 2rem 1rem;
+  }
 }

@@ -1,10 +1,12 @@
 // AboutSection.jsx
+import React from 'react';
+
 const AboutSection = () => {
   return (
-    <section className="about-section">
+    <div className="section-content">
       <h2>Sobre mí</h2>
-      <p>Contenido sobre mí...</p>
-    </section>
+      <p>Próximamente...</p>
+    </div>
   );
 };
 
