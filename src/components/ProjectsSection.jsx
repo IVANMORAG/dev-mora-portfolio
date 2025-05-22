@@ -5,44 +5,133 @@ import '../styles/ProjectsSection.css';
 const projectsData = [
   {
     id: 1,
-    title: "MRI TumorDetector AI",
-    artist: "Python, Tensorflow & FastAPI",
-    description: "Detección de tumores cerebrales con IA: React, FastAPI, Docker y ngrok.",
-    icon: "🌐",
+    title: "Brain Tumor Detection App",
+    artist: "Python, TensorFlow, FastAPI & React",
+    description: "Aplicación de IA para detectar tumores cerebrales en imágenes MRI, mostrando segmentación y superposición visual. Incluye modelos de clasificación (ResNet-50) y segmentación (ResUNet), con despliegue Dockerizado usando Nginx y exposición pública mediante ngrok.",
+    icon: "🧠",
     coverGif: "https://raw.githubusercontent.com/IVANMORAG/MRITumorDetectorAI/main/recursos/MRI-Detector.gif",
-    tools: "React, TailwindCSS, Framer Motion",
-    link: "https://example.com/portfolio"
+    tools: "React, FastAPI, TensorFlow, Docker, Nginx, ngrok, OpenCV, NumPy",
+    link: "https://github.com/IVANMORAG/MRITumorDetectorAI",
+    features: [
+      "Subida de imágenes MRI (PNG, JPG, TIFF)",
+      "Clasificación de tumores con ResNet-50",
+      "Segmentación con ResUNet",
+      "Visualización de máscara y superposición",
+      "Despliegue con Docker Compose",
+      "Exposición pública con ngrok"
+    ],
+    architecture: {
+      frontend: "React + Nginx",
+      backend: "FastAPI + TensorFlow",
+      infrastructure: "Docker (frontend, backend, ngrok)"
+    }
   },
   {
     id: 2,
-    title: "E-commerce Dashboard",
-    artist: "React & Node.js",
-    description: "Panel de administración para tiendas online con análisis de datos",
-    icon: "📊",
-    coverGif: "https://media.giphy.com/media/3ohs7HdhQA4ffttvrO/giphy.gif",
-    tools: "React, Node.js, MongoDB, Express",
-    link: "https://example.com/dashboard"
+    title: "Reconocimiento Facial Avanzado",
+    artist: "Python, Flask, TensorFlow & OpenCV",
+    description: "Aplicación web que detecta rostros, puntos faciales y emociones, con capacidades de transformación de imágenes (rotación, volteo, ajuste de brillo). Incluye historial de imágenes procesadas y despliegue público mediante ngrok.",
+    icon: "👁️",
+    coverGif: "https://raw.githubusercontent.com/IVANMORAG/FaceAnalyzer-API/main/recursos/Facial-Point-detector.gif",
+    tools: "Flask, TensorFlow/Keras, OpenCV, PIL, JavaScript, HTML5&CC3, ngrok",
+    link: "https://github.com/IVANMORAG/FaceAnalyzer-API",
+    features: [
+      "Detección de rostros y puntos faciales",
+      "Reconocimiento de emociones (7 categorías)",
+      "Transformaciones de imagen (rotación, volteo, brillo)",
+      "Alineación facial automática",
+      "Historial de imágenes procesadas",
+      "Interfaz web responsive con notificaciones"
+    ],
+    architecture: {
+      backend: "Flask (Python)",
+      processing: "OpenCV + TensorFlow/Keras",
+      frontend: "HTML/CSS/JavaScript",
+      deployment: "ngrok para exposición pública"
+    },
+    models: [
+      "Modelo de keypoints faciales (weights_keypoint.hdf5)",
+      "Modelo de detección de emociones (weights_emotions.hdf5)"
+    ]
   },
   {
     id: 3,
-    title: "App de Gestión de Tareas",
-    artist: "React Native",
-    description: "Aplicación móvil para organizar tareas con recordatorios",
-    icon: "📋",
-    coverGif: "https://media.giphy.com/media/l41lJ8ywG1ncm9FXW/giphy.gif",
-    tools: "React Native, Firebase, Redux",
-    link: "https://example.com/taskapp"
+    title: "IA en Marketing - Análisis Predictivo",
+    artist: "Python, Scikit-learn & TensorFlow",
+    description: "Sistema de análisis de ventas que aplica clustering (K-Means) y reducción de dimensionalidad (PCA, Autoencoders) para segmentación de clientes y predicción de patrones de compra, con API para consulta de resultados y visualizaciones interactivas.",
+    icon: "📈",
+    coverGif: "https://raw.githubusercontent.com/IVANMORAG/Marketing-IA/main/recursos/Marketing-IA.gif",
+    tools: "Pandas, Scikit-learn, TensorFlow/Keras, Plotly, Matplotlib, Flask",
+    link: "https://github.com/IVANMORAG/Marketing-IA",
+    features: [
+      "Clustering de clientes con K-Means",
+      "Reducción dimensional con PCA y Autoencoders",
+      "API REST para consulta de resultados",
+      "Visualizaciones interactivas 3D",
+      "Procesamiento de datasets de ventas",
+      "Análisis predictivo de comportamiento"
+    ],
+    techniques: {
+      ml: "K-Means Clustering",
+      dl: "Autoencoders neuronales",
+      stats: "Análisis PCA",
+      viz: "Gráficos Plotly 3D interactivos"
+    },
+    dataflow: [
+      "1. Carga y limpieza de datos",
+      "2. Preprocesamiento con StandardScaler",
+      "3. Clustering con K-Means (optimización elbow method)",
+      "4. Reducción dimensional para visualización",
+      "5. Exposición de resultados via API"
+    ]
   },
   {
     id: 4,
-    title: "Blog de Tecnología",
-    artist: "Next.js & GraphQL",
-    description: "Blog con artículos sobre programación y tecnología",
-    icon: "📝",
-    coverGif: "https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif",
-    tools: "Next.js, GraphQL, Prisma",
-    link: "https://example.com/blog"
-  }
+    title: "ChatApp - Arquitectura de Microservicios",
+    artist: "Node.js, Docker & MongoDB",
+    description: "Sistema distribuido de chat en tiempo real con autenticación JWT, gestión de salas y mensajería, implementado con microservicios independientes (Auth, Rooms, Chat), API Gateway y balanceo de carga con Nginx. Todo contenerizado con Docker y protegido contra DDoS.",
+    icon: "💬",
+    coverGif: "https://raw.githubusercontent.com/IVANMORAG/Chat-Project/main/recursos/ChatApp.gif",
+    tools: "Node.js, Express, Socket.IO, MongoDB, Docker, Nginx, JWT",
+    link: "https://github.com/IVANMORAG/Chat-Project",
+    architecture: {
+      components: [
+        "API Gateway (punto único de entrada)",
+        "Auth Service (JWT authentication)",
+        "Rooms Service (gestión de salas)",
+        "Chat Service (WebSockets en tiempo real)",
+        "MongoDB ReplicaSets (alta disponibilidad)",
+        "Nginx (balanceador de carga)"
+      ],
+      patterns: [
+        "Circuit Breaker",
+        "Rate Limiting",
+        "ReplicaSet DBs",
+        "Load Balancing"
+      ]
+    },
+    features: [
+      "Autenticación JWT segura",
+      "Salas de chat públicas/privadas",
+      "Mensajería en tiempo real con Socket.IO",
+      "Protección multi-nivel contra DDoS",
+      "Despliegue escalable con Docker",
+      "Frontend React interactivo"
+    ],
+    security: {
+      ddosProtection: [
+        "Rate limiting por IP (Nginx)",
+        "Circuit breaker en API Gateway",
+        "Validación estricta de inputs",
+        "Limitación de tamaño de requests"
+      ],
+      dataProtection: [
+        "ReplicaSets con MongoDB",
+        "Tokens JWT firmados",
+        "Encriptación de credenciales"
+      ]
+    }
+  },
 ];
 
 // Componente de tarjeta de proyecto optimizado
@@ -54,17 +143,11 @@ const ProjectCard = React.memo(({ project, isVisible }) => {
   // Gestión optimizada de eventos
   const handleCardMouseEnter = useCallback(() => {
     setIsPlaying(true);
+    setIsHoveringCover(true);
   }, []);
 
   const handleCardMouseLeave = useCallback(() => {
     setIsPlaying(false);
-  }, []);
-
-  const handleCoverMouseEnter = useCallback(() => {
-    setIsHoveringCover(true);
-  }, []);
-
-  const handleCoverMouseLeave = useCallback(() => {
     setIsHoveringCover(false);
   }, []);
 
@@ -90,12 +173,12 @@ const ProjectCard = React.memo(({ project, isVisible }) => {
       onMouseEnter={handleCardMouseEnter}
       onMouseLeave={handleCardMouseLeave}
     >
-      <div className="project-cover-wrapper">
-        <div
-          className={`project-cover ${isHoveringCover ? 'flip' : ''}`}
-          onMouseEnter={handleCoverMouseEnter}
-          onMouseLeave={handleCoverMouseLeave}
-        >
+      <div 
+        className="project-cover-wrapper"
+        onMouseEnter={() => setIsHoveringCover(true)}
+        onMouseLeave={() => setIsHoveringCover(false)}
+      >
+        <div className={`project-cover ${isHoveringCover ? 'flip' : ''}`}>
           <div className="cover-inner">
             <div className="cover-front">
               <div className="project-icon neon-effect">{project.icon}</div>
@@ -114,16 +197,6 @@ const ProjectCard = React.memo(({ project, isVisible }) => {
               </div>
             </div>
           </div>
-        </div>
-        <div className={`equalizer-bars ${isPlaying ? 'animate' : ''}`}>
-          {/* Reducimos el número de barras para mejorar rendimiento */}
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div
-              key={i}
-              className="equalizer-bar"
-              style={{ animationDelay: `${i * 0.15}s` }}
-            />
-          ))}
         </div>
       </div>
       <div className="project-info">

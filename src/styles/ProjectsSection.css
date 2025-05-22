@@ -1,5 +1,3 @@
-/* ProjectsSection.css - Estilos optimizados */
-
 .projects-section {
   width: 100%;
   padding: 60px 0;
@@ -86,6 +84,7 @@
   padding-top: 60%; /* Proporción de aspecto */
   background-color: rgba(5, 10, 25, 0.8);
   overflow: hidden;
+  cursor: pointer;
 }
 
 .project-cover {
@@ -228,56 +227,6 @@
 .play-indicator.active {
   background-color: #4af;
   box-shadow: 0 0 10px rgba(68, 170, 255, 0.8);
-}
-
-/* Barras del ecualizador optimizadas para rendimiento */
-.equalizer-bars {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 3px;
-  padding: 0 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: 2;
-  background: linear-gradient(to top, rgba(0, 10, 30, 0.8), transparent);
-}
-
-.equalizer-bars.animate {
-  opacity: 1;
-}
-
-.equalizer-bar {
-  width: 4px;
-  height: 3px;
-  background-color: #4af;
-  border-radius: 1px;
-  transition: height 0.1s ease;
-}
-
-.equalizer-bars.animate .equalizer-bar {
-  animation: equalize 1.5s ease-in-out infinite alternate;
-  will-change: height;
-}
-
-@keyframes equalize {
-  0% { height: 3px; }
-  10% { height: 15px; }
-  20% { height: 5px; }
-  30% { height: 12px; }
-  40% { height: 7px; }
-  50% { height: 10px; }
-  60% { height: 5px; }
-  70% { height: 8px; }
-  80% { height: 12px; }
-  90% { height: 6px; }
-  100% { height: 15px; }
 }
 
 /* Responsive */

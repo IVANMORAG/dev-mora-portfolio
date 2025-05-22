@@ -16,7 +16,7 @@ const Footer = () => {
 
         <div className="social-links">
           <a href="https://www.linkedin.com/in/ivan-morag/" target="_blank" rel="noopener noreferrer">
-            <img src="https://cdn.simpleicons.org/linkedin/white" alt="LinkedIn"/>
+            <img src="https://raw.githubusercontent.com/gauravghongde/social-icons/master/SVG/White/LinkedIN_white.svg" alt="LinkedIn"/>
           </a>
           <a href="https://www.instagram.com/ivn_mg/" target="_blank" rel="noopener noreferrer">
             <img src="https://cdn.simpleicons.org/instagram/white" alt="Instagram"/>
