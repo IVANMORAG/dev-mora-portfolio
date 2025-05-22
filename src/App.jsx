@@ -123,18 +123,6 @@ function App() {
               )}
             </section>
             
-            <section id="contact" className="section-container">
-              {visibleSections.contact ? (
-                <Suspense fallback={<div className="section-loading">Cargando...</div>}>
-                  <ContactSection />
-                </Suspense>
-              ) : (
-                <div className="section-placeholder">
-                  <h2>Contacto</h2>
-                  <p>Próximamente...</p>
-                </div>
-              )}
-            </section>
           </>
         )}
       </main>

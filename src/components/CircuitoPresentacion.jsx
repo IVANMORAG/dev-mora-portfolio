@@ -38,7 +38,7 @@ const CircuitoPresentacion = () => {
   return (
     <div className="main-wrapper">
       <div className="main-container">
-        
+
         <div className={`circuit-container ${isLoaded ? 'loaded' : ''}`}>
           <div className="energy-flow" ref={energyFlowRef}>
             <div className="energy-wave" style={{ animationDelay: '0s' }} />
@@ -62,9 +62,16 @@ const CircuitoPresentacion = () => {
           
           {/* Botones de acción */}
           <div className="action-buttons">
-            <a href="#contact" className="action-button">Contáctame</a>
+            <a 
+              href="/docs/MORA-IVAN-CV.pdf" 
+              className="action-button"
+              download="CV-Ivan-Mora.pdf"
+            >
+              Descargar CV
+            </a>
             <a href="#skills" className="action-button">Mis Habilidades</a>
           </div>
+
         </div>
       </div>
     </div>

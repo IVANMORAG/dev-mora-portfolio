@@ -5,32 +5,55 @@ const AboutSection = () => {
   return (
     <section id="about" className="about-section">
       <div className="about-container">
-        <h2 className="section-title">Sobre Mí</h2>
-        <div className="about-content">
-          <div className="about-text">
-            <p>
-              ¡Hola! Soy Iván Mora, estudiante de Ingeniería en Sistemas Computacionales apasionado por el desarrollo de software y la inteligencia artificial.
-            </p>
-            <p>
-              Mi enfoque actual está en construir soluciones tecnológicas innovadoras que combinen desarrollo web, machine learning y buenas prácticas de seguridad informática.
-            </p>
-            <p>
-              Como estudiante, he desarrollado proyectos prácticos que aplican conceptos avanzados de programación, arquitectura de software y análisis de datos.
-            </p>
-            <div className="education">
-              <h3>Formación Académica</h3>
-              <ul>
-                <li>Ingeniería en Sistemas Computacionales - Actual</li>
-                <li>Certificaciones en Desarrollo Web y Machine Learning</li>
-              </ul>
+        <div className="terminal-header">
+          <span className="terminal-dot red"></span>
+          <span className="terminal-dot yellow"></span>
+          <span className="terminal-dot green"></span>
+          <span className="terminal-title">ivan@portfolio:~</span>
+        </div>
+        
+        <div className="terminal-body">
+          <p className="command">$ cat sobre_mi.txt</p>
+          <h2>Construyendo el Futuro Digital</h2>
+          
+          <div className="about-content">
+            <div className="about-text">
+              <p>
+                Como estudiante de Ingeniería en Sistemas, me especializo en desarrollar soluciones tecnológicas innovadoras 
+                con enfoque en seguridad y eficiencia.
+              </p>
+              
+              <div className="expertise">
+                <h3>Áreas de Enfoque:</h3>
+                <ul>
+                  <li><span>>_</span> Desarrollo Full-Stack (MERN Stack)</li>
+                  <li><span>>_</span> Seguridad Ofensiva (Pentesting básico)</li>
+                  <li><span>>_</span> Automatización con Python</li>
+                  <li><span>>_</span> Arquitectura Cloud (AWS Fundamentals)</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="stats">
+              <div className="stat-box">
+                <div className="stat-number">15+</div>
+                <div className="stat-label">Proyectos completados</div>
+              </div>
+              <div className="stat-box">
+                <div className="stat-number">5+</div>
+                <div className="stat-label">Certificaciones</div>
+              </div>
+              <div className="stat-box">
+                <div className="stat-number">100%</div>
+                <div className="stat-label">Autodidacta</div>
+              </div>
             </div>
           </div>
-          <div className="about-image">
-            <div className="image-frame">
-              {/* Reemplaza con tu imagen personal */}
-              <div className="placeholder-image"></div>
-            </div>
-          </div>
+          
+          <p className="command">$ iniciando_desarrollo --último_proyecto</p>
+          <p className="typing-animation">> Compilando código...</p>
+          <p className="typing-animation">> Optimizando rendimiento...</p>
+          <p className="typing-animation">> Desplegando solución...</p>
         </div>
       </div>
     </section>

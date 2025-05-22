@@ -26,6 +26,12 @@ const Navbar = () => {
     }
   };
 
+  const handleDownloadCV = () => {
+    // Puedes añadir tracking aquí si lo deseas
+    window.open('/docs/MORA-IVAN-CV.pdf', '_blank');
+    setMobileMenuOpen(false);
+  };
+
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${mobileMenuOpen ? 'mobile-open' : ''}`}>
       <div className="navbar-container">
@@ -52,7 +58,7 @@ const Navbar = () => {
             <a onClick={() => scrollTo('skills')}>Habilidades</a>
           </li>
           <li>
-            <a onClick={() => scrollTo('contact')}>Contacto</a>
+            <a onClick={handleDownloadCV}>Descargar CV</a>
           </li>
         </ul>
       </div>

@@ -9,8 +9,8 @@ const Footer = () => {
           <p className="subtitle">Estudiante de Ingeniería en Sistemas</p>
           
           <div className="contact-info">
-            <p>ivan@ejemplo.com</p>
-            <p>+52 123 456 7890</p>
+            <p>ivanmoragarcia412@gmail.com</p>
+            <p>+52 5512420306</p>
           </div>
         </div>
 

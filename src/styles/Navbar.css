@@ -155,3 +155,31 @@
     padding: 1rem 0;
   }
 }
+
+
+/* Estilo para el enlace de Descargar CV */
+.navbar-links li:last-child a {
+  color: #4af;
+  font-weight: 600;
+  position: relative;
+}
+
+.navbar-links li:last-child a:after {
+  content: "↓";
+  margin-left: 5px;
+  font-size: 0.8em;
+}
+
+.navbar-links li:last-child a:hover {
+  color: #6cf;
+}
+
+/* Efecto especial para el botón de CV en móvil */
+@media (max-width: 768px) {
+  .navbar-links li:last-child a {
+    background: rgba(68, 170, 255, 0.15);
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(68, 170, 255, 0.3);
+  }
+}
