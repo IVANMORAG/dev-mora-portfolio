@@ -9,7 +9,7 @@ const CircuitoPresentacion = lazy(() => import('./components/CircuitoPresentacio
 const ProjectsSection = lazy(() => import('./components/ProjectsSection'));
 const AboutSection = lazy(() => import('./components/AboutSection'));
 const SkillsSection = lazy(() => import('./components/SkillsSection'));
-const ContactSection = lazy(() => import('./components/ContactSection'));
+
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);

@@ -18,7 +18,9 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollTo = (id) => {
+  // CORREGIDO: Agregar preventDefault para evitar que se agregue el hash a la URL
+  const scrollTo = (event, id) => {
+    event.preventDefault(); // Esto previene el comportamiento por defecto del enlace
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -26,8 +28,8 @@ const Navbar = () => {
     }
   };
 
-  const handleDownloadCV = () => {
-    // Puedes añadir tracking aquí si lo deseas
+  const handleDownloadCV = (event) => {
+    event.preventDefault(); // También aquí para consistencia
     window.open('/docs/MORA-IVAN-CV.pdf', '_blank');
     setMobileMenuOpen(false);
   };
@@ -46,19 +48,20 @@ const Navbar = () => {
         
         <ul className={`navbar-links ${mobileMenuOpen ? 'active' : ''}`}>
           <li>
-            <a onClick={() => scrollTo('home')}>Inicio</a>
+            {/* CORREGIDO: Agregar href="#" y pasar event como parámetro */}
+            <a href="#" onClick={(e) => scrollTo(e, 'home')}>Inicio</a>
           </li>
           <li>
-            <a onClick={() => scrollTo('about')}>Sobre mí</a>
+            <a href="#" onClick={(e) => scrollTo(e, 'about')}>Sobre mí</a>
           </li>
           <li>
-            <a onClick={() => scrollTo('projects')}>Proyectos</a>
+            <a href="#" onClick={(e) => scrollTo(e, 'projects')}>Proyectos</a>
           </li>
           <li>
-            <a onClick={() => scrollTo('skills')}>Habilidades</a>
+            <a href="#" onClick={(e) => scrollTo(e, 'skills')}>Habilidades</a>
           </li>
           <li>
-            <a onClick={handleDownloadCV}>Descargar CV</a>
+            <a href="#" onClick={handleDownloadCV}>Descargar CV</a>
           </li>
         </ul>
       </div>

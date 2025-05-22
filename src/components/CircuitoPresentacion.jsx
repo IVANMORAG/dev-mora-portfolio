@@ -35,6 +35,15 @@ const CircuitoPresentacion = () => {
     };
   }, [isLoaded]);
 
+  // CORREGIDO: Función para manejar el scroll sin cambiar la URL
+  const handleSkillsClick = (event) => {
+    event.preventDefault();
+    const element = document.getElementById('skills');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="main-wrapper">
       <div className="main-container">
@@ -69,7 +78,10 @@ const CircuitoPresentacion = () => {
             >
               Descargar CV
             </a>
-            <a href="#skills" className="action-button">Mis Habilidades</a>
+            {/* CORREGIDO: Cambiar href y agregar onClick con preventDefault */}
+            <a href="#" className="action-button" onClick={handleSkillsClick}>
+              Mis Habilidades
+            </a>
           </div>
 
         </div>
